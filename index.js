@@ -27,8 +27,6 @@ client.on('messageCreate', async message => {
 		const args = message.content.slice(prefix.length).trim().split(' ');
 		switch (args.at(0).toLowerCase()){
 			case 'yt':
-			// let embed = new EmbedBuilder().setTitle("s").setDescription("Tumadre");
-			// message.reply({embeds : [embed]});
 			client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'youtube').then(async invite => {
 				return message.channel.send(`${invite.code}`);
 			});
@@ -43,30 +41,6 @@ client.on('messageCreate', async message => {
 				}
 				break;
 		}
-		//------------------------------ BOTONES
-		// if (interaction.commandName === 'ping') {
-		// 	const row = new ActionRowBuilder()
-		// 		.addComponents(
-		// 			new SelectMenuBuilder()
-		// 				.setCustomId('select')
-		// 				.setPlaceholder('Nothing selected')
-		// 				.addOptions(
-		// 					{
-		// 						label: 'Select me',
-		// 						description: 'This is a description',
-		// 						value: 'first_option',
-		// 					},
-		// 					{
-		// 						label: 'You can select me too',
-		// 						description: 'This is also a description',
-		// 						value: 'second_option',
-		// 					},
-		// 				),
-		// 		);
-	
-		// 	await interaction.reply({ content: 'Pong!', components: [row] });
-		// }
-		//-------------------------------------
 	}
 });
 
